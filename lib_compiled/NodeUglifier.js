@@ -408,9 +408,8 @@
           conditionals: true
         },
         output: {
-          comments: false
-        },
-        strProtectionLvl: 0 //, reserved:"cachedModules"
+          comments: false //, reserved:"cachedModules"
+        }
       };
       _.extend(options, optionsIn);
       if (!this.lastResult.source) {
@@ -418,10 +417,7 @@
       }
       source = this.toString();
       a = 1 + 1;
-      res = UglifyJS.minify(source, _.extend({
-        fromString: true,
-        outSourceMap: UGLIFY_SOURCE_MAP_TOKEN
-      }, options));
+      res = UglifyJS.minify(source, options);
       this.lastResult.source = res.code;
       this.lastResult.sourceMapUglify = res.map;
       switch (options.strProtectionLvl) {
