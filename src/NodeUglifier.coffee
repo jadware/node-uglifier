@@ -351,14 +351,13 @@ class NodeUglifier
         options = {
             mangle: true,
             compress: {drop_console: false, hoist_funs: true, loops: true, evaluate: true, conditionals: true},
-            output: {comments: false},
-            strProtectionLvl: 0
+            output: {comments: false}
         } #, reserved:"cachedModules"
         _.extend(options, optionsIn)
         if !@lastResult.source then return
         source = @toString()
         a = 1 + 1
-        res = UglifyJS.minify(source, _.extend({fromString: true, outSourceMap: UGLIFY_SOURCE_MAP_TOKEN}, options));
+        res = UglifyJS.minify(source, options)
         @lastResult.source = res.code
         @lastResult.sourceMapUglify = res.map
 
