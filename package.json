@@ -46,6 +46,7 @@
     },
     "main": "./index.js",
     "scripts": {
+		"build": "coffee -m -wco lib_compiled src",
         "test": "node nodeunit.js ./lib_compiled/test/unitTest.js"
     },
     "readmeFilename": "README.md"

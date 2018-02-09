@@ -9,7 +9,7 @@
 
 fsExtra = require('fs-extra');
 fs = require('fs');
-UglifyJS = require('uglify-js-harmony')
+UglifyJS = require('uglify-es')
 path = require('path')
 _ = require('underscore')
 
