@@ -1,10 +1,13 @@
 {
   "version": 3,
   "file": "cryptoUtils.js",
-  "sourceRoot": "..\\..\\src\\libs",
+  "sourceRoot": "..\\..",
   "sources": [
-    "cryptoUtils.coffee"
+    "src\\libs\\cryptoUtils.coffee"
   ],
   "names": [],
-  "mappings": ";AASA;AAAA,MAAA;;EAAA,CAAA,GAAI,OAAA,CAAQ,YAAR;;EACJ,KAAA,GAAQ,OAAA,CAAQ,OAAR;;EACR,MAAA,GAAO,OAAA,CAAQ,QAAR;;EACP,UAAA,GAAW,OAAA,CAAQ,YAAR;;EAEX,WAAA,GAAY,MAAM,CAAC;;EAEnB,WAAW,CAAC,YAAZ,GAAyB,SAAC,UAAD;WAAc,MAAM,CAAC,WAAP,CAAmB,IAAI,CAAC,IAAL,CAAU,UAAA,GAAa,CAAvB,CAAnB,CAA6C,CAAC,QAA9C,CAAuD,KAAvD,CAA6D,CAAC,SAA9D,CAAwE,CAAxE,EAA2E,UAA3E;EAAd;;EACzB,WAAW,CAAC,aAAZ,GAA0B,SAAC,OAAD,EAAS,aAAT,EAAuB,IAAvB;WAA8B,MAAM,CAAC,UAAP,CAAkB,aAAlB,EAAgC,IAAhC,CAAqC,CAAC,MAAtC,CAA6C,OAA7C,CAAqD,CAAC,MAAtD,CAA6D,KAA7D;EAA9B;;EAE1B,WAAW,CAAC,YAAZ,GAAyB,SAAC,KAAD,EAAO,IAAP;AACvB,QAAA;;MAD8B,OAAK;;IACnC,OAAA,GAAQ,IAAI,CAAC;IACb,IAAG,IAAH;MAAa,OAAA,GAAQ,UAAA,CAAW,IAAX,EAArB;;AACA,SAAS,oFAAT;MACE,CAAA,GAAI,IAAI,CAAC,KAAL,CAAW,OAAA,CAAA,CAAA,GAAY,CAAC,CAAA,GAAI,CAAL,CAAvB;MACJ,IAAA,GAAO,KAAM,CAAA,CAAA;MACb,KAAM,CAAA,CAAA,CAAN,GAAW,KAAM,CAAA,CAAA;MACjB,KAAM,CAAA,CAAA,CAAN,GAAW;AAJb;AAMA,WAAO;EATgB;AAVzB"
+  "mappings": ";AAAA;EAAA;;;;;;;AAAA,MAAA,CAAA,EAAA,MAAA,EAAA,WAAA,EAAA,UAAA,EAAA;;EASA,CAAA,GAAI,OAAA,CAAQ,YAAR;;EACJ,KAAA,GAAQ,OAAA,CAAQ,OAAR;;EACR,MAAA,GAAO,OAAA,CAAQ,QAAR;;EACP,UAAA,GAAW,OAAA,CAAQ,YAAR;;EAEX,WAAA,GAAY,MAAM,CAAC;;EAEnB,WAAW,CAAC,YAAZ,GAAyB,QAAA,CAAC,UAAD,CAAA;WAAc,MAAM,CAAC,WAAP,CAAmB,IAAI,CAAC,IAAL,CAAU,UAAA,GAAa,CAAvB,CAAnB,CAA6C,CAAC,QAA9C,CAAuD,KAAvD,CAA6D,CAAC,SAA9D,CAAwE,CAAxE,EAA2E,UAA3E;EAAd;;EACzB,WAAW,CAAC,aAAZ,GAA0B,QAAA,CAAC,OAAD,EAAS,aAAT,EAAuB,IAAvB,CAAA;WAA8B,MAAM,CAAC,UAAP,CAAkB,aAAlB,EAAgC,IAAhC,CAAqC,CAAC,MAAtC,CAA6C,OAA7C,CAAqD,CAAC,MAAtD,CAA6D,KAA7D;EAA9B;;EAE1B,WAAW,CAAC,YAAZ,GAAyB,QAAA,CAAC,KAAD,EAAO,OAAK,IAAZ,CAAA;AACvB,QAAA,CAAA,EAAA,CAAA,EAAA,CAAA,EAAA,OAAA,EAAA,GAAA,EAAA;IAAA,OAAA,GAAQ,IAAI,CAAC;IACb,IAAG,IAAH;MAAa,OAAA,GAAQ,UAAA,CAAW,IAAX,EAArB;;IACA,KAAS,iIAAT;MACE,CAAA,GAAI,IAAI,CAAC,KAAL,CAAW,OAAA,CAAA,CAAA,GAAY,CAAC,CAAA,GAAI,CAAL,CAAvB;MACJ,IAAA,GAAO,KAAM,CAAA,CAAA;MACb,KAAM,CAAA,CAAA,CAAN,GAAW,KAAM,CAAA,CAAA;MACjB,KAAM,CAAA,CAAA,CAAN,GAAW;IAJb;AAMA,WAAO;EATgB;AAnBzB",
+  "sourcesContent": [
+    "#\r\n#/*!\r\n# * node-uglifier\r\n# * Copyright (c) 2014 Zsolt Szabo Istvan\r\n# * MIT Licensed\r\n# *\r\n# */\r\n#\r\n\r\n_ = require('underscore')\r\nsugar = require('sugar')\r\ncrypto=require(\"crypto\")\r\nseedrandom=require(\"seedrandom\")\r\n\r\ncryptoUtils=module.exports\r\n\r\ncryptoUtils.generateSalt=(saltLength)->crypto.randomBytes(Math.ceil(saltLength / 2)).toString('hex').substring(0, saltLength);\r\ncryptoUtils.getSaltedHash=(message,hashAlgorithm,salt)->crypto.createHmac(hashAlgorithm,salt).update(message).digest('hex')\r\n\r\ncryptoUtils.shuffleArray=(array,seed=null)->\r\n  randFnc=Math.random\r\n  if seed then randFnc=seedrandom(seed);\r\n  for i in [array.length - 1..0]\r\n    j = Math.floor(randFnc() * (i + 1));\r\n    temp = array[i];\r\n    array[i] = array[j];\r\n    array[j] = temp;\r\n\r\n  return array;\r\n"
+  ]
 }

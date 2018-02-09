@@ -1,10 +1,13 @@
 {
   "version": 3,
   "file": "depA.js",
-  "sourceRoot": "..\\..\\..\\src\\test\\testCycleDetection",
+  "sourceRoot": "..\\..\\..",
   "sources": [
-    "depA.coffee"
+    "src\\test\\testCycleDetection\\depA.coffee"
   ],
   "names": [],
-  "mappings": ";AAAA;AAAA,MAAA;;EAAA,CAAA,GAAE,OAAA,CAAQ,QAAR;AAAF"
+  "mappings": ";AAAA;AAAA,MAAA;;EAAA,CAAA,GAAE,OAAA,CAAQ,QAAR;AAAF",
+  "sourcesContent": [
+    "a=require(\"./depB\")"
+  ]
 }

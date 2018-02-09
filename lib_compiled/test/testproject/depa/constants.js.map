@@ -1,10 +1,13 @@
 {
   "version": 3,
   "file": "constants.js",
-  "sourceRoot": "..\\..\\..\\..\\lib_test_project_export\\src\\test\\testproject\\depa",
+  "sourceRoot": "..\\..\\..\\..",
   "sources": [
-    "constants.coffee"
+    "src\\test\\testproject\\depa\\constants.coffee"
   ],
   "names": [],
-  "mappings": ";AAGA;AAAA,MAAA;;EAAA,OAAA,GAAQ;;EACR,OAAA,GAAQ;;EACR,MAAM,CAAC,OAAO,CAAC,MAAf,GAAsB;;EACtB,MAAM,CAAC,OAAO,CAAC,MAAf,GAAsB;AAHtB"
+  "mappings": ";AAGA;AAAA,MAAA,OAAA,EAAA;;EAAA,OAAA,GAAQ;;EACR,OAAA,GAAQ;;EACR,MAAM,CAAC,OAAO,CAAC,MAAf,GAAsB;;EACtB,MAAM,CAAC,OAAO,CAAC,MAAf,GAAsB;AAHtB",
+  "sourcesContent": [
+    "\r\n\r\n\r\n_PART_A=\"first part of secret\"\r\n_PART_B=\"second part of secret\"\r\nmodule.exports.PART_A=_PART_A\r\nmodule.exports.PART_B=_PART_B\r\n\r\n\r\n\r\n\r\n\r\n\r\n"
+  ]
 }

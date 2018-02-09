@@ -16,7 +16,7 @@ sugar = require('sugar');sugar.extend();
 path = require('path')
 packageUtils = require('./libs/packageUtils')
 cryptoUtils = require('./libs/cryptoUtils')
-UglifyJS = require('uglify-js-harmony')
+UglifyJS = require('uglify-es')
 util = require("util")
 
 saltLength = 20

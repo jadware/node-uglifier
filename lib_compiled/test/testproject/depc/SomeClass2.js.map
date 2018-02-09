@@ -1,10 +1,13 @@
 {
   "version": 3,
   "file": "SomeClass2.js",
-  "sourceRoot": "..\\..\\..\\..\\lib_test_project_export\\src\\test\\testproject\\depc",
+  "sourceRoot": "..\\..\\..\\..",
   "sources": [
-    "SomeClass2.coffee"
+    "src\\test\\testproject\\depc\\SomeClass2.coffee"
   ],
   "names": [],
-  "mappings": ";AAAA;AAAA,MAAA;;EAAM;IAEQ,oBAAC,OAAD;MAAC,IAAC,CAAA,UAAD;IAAD;;yBAEZ,GAAA,GAAI,SAAA;AACF,aAAO,IAAC,CAAA;IADN;;;;;;EAGN,MAAM,CAAC,OAAP,GAAe;AAPf"
+  "mappings": ";AAAA;AAAA,MAAA;;EAAM,aAAN,MAAA,WAAA;IAEE,WAAY,QAAA,CAAA;MAAC,IAAC,CAAA;IAAF;;IAEZ,GAAI,CAAA,CAAA;AACF,aAAO,IAAC,CAAA;IADN;;EAJN;;EAOA,MAAM,CAAC,OAAP,GAAe;AAPf",
+  "sourcesContent": [
+    "class SomeClass2\r\n\r\n  constructor:(@initStr)->\r\n\r\n  get:()->\r\n    return @initStr\r\n\r\nmodule.exports=SomeClass2\r\n"
+  ]
 }

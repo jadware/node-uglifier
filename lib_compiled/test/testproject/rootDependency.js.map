@@ -1,10 +1,13 @@
 {
   "version": 3,
   "file": "rootDependency.js",
-  "sourceRoot": "..\\..\\..\\lib_test_project_export\\src\\test\\testproject",
+  "sourceRoot": "..\\..\\..",
   "sources": [
-    "rootDependency.coffee"
+    "src\\test\\testproject\\rootDependency.coffee"
   ],
   "names": [],
-  "mappings": ";AAAA;EAAA,MAAM,CAAC,OAAO,CAAC,qBAAf,GAAuC,SAAC,KAAD;AAAW,WAAO,YAAA,GAAe;EAAjC;AAAvC"
+  "mappings": ";AAAA;EAAA,MAAM,CAAC,OAAO,CAAC,qBAAf,GAAuC,QAAA,CAAC,KAAD,CAAA;AAAW,WAAO,YAAA,GAAe;EAAjC;AAAvC",
+  "sourcesContent": [
+    "module.exports.theNonTrivialFunction = (strIn) -> return \"ROOT_TEST_\" + strIn"
+  ]
 }
